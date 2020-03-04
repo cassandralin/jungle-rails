@@ -8,4 +8,9 @@ def render_cart_conditionally
     render :partial => 'empty_cart'
 
   end
+end
+def render_soldout(num)
+  if num < 1
+    render :partial => "soldout"
+  end
 end 
