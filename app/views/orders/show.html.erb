@@ -5,9 +5,26 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h4>Thank you for your order <%= @order.email %> !</h4>
+    <h2>Items Ordered</h2>
+    <% @items.each_with_index do |item, index| %>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total</th>
+      <th scope="col">Product Description</th>
+    </tr>
+  </thead>
+    <h4> <%= render 'line_item', product: item, quantity: @line_items[index].quantity %>    
+            <% end %>
+    </h4>
+   </tbody>
+</table>
   </div>
-
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+  <%= link_to "Lets do it all again! Let's Go Shopping!", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
